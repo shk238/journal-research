@@ -1,0 +1,46 @@
+# Interest keywords. Used by the scoring step (see config/scoring.md).
+#
+#   core     - a hit here is a strong relevance signal
+#   adjacent - a hit here is a mild boost
+#   exclude  - a hit here pushes the paper down (out of scope for now)
+#
+# Matching is done by the model semantically, not by substring — these are
+# intent anchors, not regexes. Edit freely; this is a starting point for
+# "polymer-related topics", not a fixed list.
+
+core:
+  - polymer synthesis / polymerization mechanisms
+  - controlled radical polymerization (RAFT, ATRP, NMP)
+  - anionic / living / group-transfer polymerization and unusual chain-growth mechanisms
+  - ring-opening (ROP) and ring-opening metathesis (ROMP) polymerization
+  - block copolymers and their self-assembly
+  - polymer blends, compatibilization, and phase behaviour
+  - polymer brushes and surface-initiated polymerization
+  - polymer networks, gels, hydrogels
+  - conjugated / semiconducting polymers
+  - polymer electrolytes and ion-conducting membranes
+  - stimuli-responsive and adaptive polymers
+  - sequence-controlled and precision polymers
+  - polymer physics: dynamics, rheology, glass transition, entanglement
+  - single-chain nanoparticles, bottlebrush and topological polymers
+  - organic-inorganic hybrid materials (POSS / silsesquioxanes, sol-gel and ORMOCER,
+    polymer-grafted nanoparticles, MOF- and clay-polymer hybrids, metallopolymers,
+    hybrid perovskite-polymer)
+  - emergent / unexpected physical properties arising from chain architecture or processing
+
+adjacent:
+  - vitrimers and covalent adaptable networks
+  - self-healing and reprocessable polymers
+  - chemically recyclable / depolymerizable polymers
+  - sustainable / bio-based monomers and feedstocks
+  - supramolecular materials and dynamic bonds
+  - membranes for separation or energy
+  - organic electronics and photovoltaics
+  - nanocomposites and filler-matrix interfaces
+  - machine learning for materials / polymer discovery
+  - additive manufacturing / 3D printing of polymers
+
+exclude:
+  - purely biological studies with no materials angle
+  - small-molecule drug discovery / medicinal chemistry
+  - inorganic-only catalysis with no polymer or soft-matter component

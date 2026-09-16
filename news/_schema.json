@@ -1,0 +1,49 @@
+{
+  "_comment": "news/<date>_policy_news.json のスキーマ兼スケルトン。Phase 2 の scripts/render_site.py が digests/<date>.json と並べて1ページに束ねる想定。tier: main=本筋 / fringe=裾野・要ご判断。confirmation_level: primary=一次資料本文まで確認 / headline=会議開催情報・見出しレベル。theme: 1 または 2。polymer_angle_ja はテーマ2でキーワード非該当のときのみ記入、それ以外は null。",
+  "date": "YYYY-MM-DD",
+  "track": "news",
+  "confirmation_level": "primary | headline",
+  "stats": { "sources_checked": 0, "new": 0, "main": 0, "fringe": 0 },
+  "intro_ja": "任意。この回の全体像。3〜4文。該当なしなら「大きな更新なし」。",
+  "items": [
+    {
+      "id": "1",
+      "tier": "main",
+      "theme": 1,
+      "title_ja": "一行見出し（トピックの要約）",
+      "source_short": "METI",
+      "url": "https://...",
+      "local_file": null,
+      "published": "YYYY-MM-DD",
+      "summary_ja": "何が起きたか、自社にとっての意味、背景の技術的ボトルネック。3〜4文。",
+      "polymer_angle_ja": null
+    },
+    {
+      "id": "A",
+      "tier": "fringe",
+      "theme": 2,
+      "title_ja": "一行見出し",
+      "source_short": "IEA",
+      "url": "https://...",
+      "local_file": null,
+      "published": "YYYY-MM-DD",
+      "summary_ja": "概要と、なぜ念のため拾ったか。2〜3文。",
+      "polymer_angle_ja": "どの部材・工程で高分子材料が効くかの仮説。"
+    }
+  ],
+  "source_coverage": [
+    { "source_short": "METI", "result_ja": "新着あり（本筋#1）" },
+    { "source_short": "ANRE", "result_ja": "関連情報なし" },
+    { "source_short": "NEDO", "result_ja": "関連情報なし" },
+    { "source_short": "環境省", "result_ja": "関連情報なし" },
+    { "source_short": "JST-CRDS", "result_ja": "更新なし" },
+    { "source_short": "JAEA", "result_ja": "関連情報なし" },
+    { "source_short": "ECHA", "result_ja": "関連情報なし" },
+    { "source_short": "欧州委員会", "result_ja": "関連情報なし" },
+    { "source_short": "US EPA", "result_ja": "関連情報なし" },
+    { "source_short": "IEA", "result_ja": "新着あり（裾野A）" },
+    { "source_short": "化学工業日報", "result_ja": "見出しのみ確認" },
+    { "source_short": "Policy Commons", "result_ja": "未確認（月次上限のため見送り）" }
+  ],
+  "dropped_ja": "理由別の件数を一文で。"
+}

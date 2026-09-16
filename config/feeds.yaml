@@ -1,0 +1,61 @@
+# Journal sources.
+#
+# Each entry has:
+#   name    - full journal name
+#   short   - label used in digests
+#   source  - "rss" or "crossref"   (default: rss)
+#   url     - feed URL           (source: rss)
+#   issn    - any ISSN for the journal (source: crossref)
+#   enabled - set false to skip without deleting
+#
+# ACS / RSC / Elsevier block or don't serve usable script RSS, so those go
+# through the Crossref API instead (articles by created-date, newest first).
+# Nature and Wiley RSS work directly and include abstracts.
+#
+# Abstract availability via Crossref: ACS yes, RSC mostly yes, Elsevier NO
+# (Elsevier deposits no abstracts anywhere public — those items are scored
+# from title + authors; pull the abstract on demand if a title looks strong).
+#
+# Verify after editing:  python scripts/fetch_feeds.py --check
+
+defaults:
+  crossref_window_days: 7   # how far back a crossref source looks each run
+
+feeds:
+  # --- ACS (via Crossref) ---
+  - {name: Journal of the American Chemical Society, short: JACS,            source: crossref, issn: 0002-7863}
+  - {name: JACS Au,                                  short: JACS Au,         source: crossref, issn: 2691-3704}
+  - {name: ACS Nano,                                 short: ACS Nano,        source: crossref, issn: 1936-0851}
+  - {name: ACS Macro Letters,                        short: ACS Macro Lett., source: crossref, issn: 2161-1653}
+  - {name: Macromolecules,                           short: Macromolecules,  source: crossref, issn: 0024-9297}
+  - {name: Chemistry of Materials,                   short: Chem. Mater.,    source: crossref, issn: 0897-4756}
+  - {name: ACS Materials Letters,                    short: ACS Mater. Lett.,source: crossref, issn: 2639-4979}
+  - {name: ACS Applied Materials & Interfaces,       short: ACS AMI,         source: crossref, issn: 1944-8244}
+  - {name: ACS Applied Nano Materials,               short: ACS Appl. Nano,  source: crossref, issn: 2574-0970}
+
+  # --- Nature Portfolio (via RSS) ---
+  - {name: Nature Materials,            short: Nat. Mater.,     source: rss, url: "https://www.nature.com/nmat.rss"}
+  - {name: Nature Chemistry,            short: Nat. Chem.,      source: rss, url: "https://www.nature.com/nchem.rss"}
+  - {name: Nature Chemical Engineering, short: Nat. Chem. Eng., source: rss, url: "https://www.nature.com/natchemeng.rss"}
+  - {name: Polymer Journal,             short: Polym. J.,       source: rss, url: "https://www.nature.com/pj.rss"}
+
+  # --- Wiley (via RSS) ---
+  - {name: "Advanced Materials", short: Adv. Mater., source: rss, url: "https://onlinelibrary.wiley.com/feed/15214095/most-recent"}
+
+  # --- RSC (via Crossref) ---
+  - {name: Polymer Chemistry,   short: Polym. Chem. (RSC), source: crossref, issn: 1759-9954}
+  - {name: Soft Matter,         short: Soft Matter,        source: crossref, issn: 1744-683X}
+  - {name: Materials Horizons,  short: Mater. Horiz.,      source: crossref, issn: 2051-6347}
+  - {name: Materials Advances,  short: Mater. Adv.,        source: crossref, issn: 2633-5409}
+
+  # --- Elsevier (via Crossref; no abstracts — see note above) ---
+  - {name: Polymer,                          short: Polymer,             source: crossref, issn: 0032-3861}
+  - {name: European Polymer Journal,         short: Eur. Polym. J.,      source: crossref, issn: 0014-3057}
+  - {name: Progress in Polymer Science,      short: Prog. Polym. Sci.,   source: crossref, issn: 0079-6700}
+  - {name: Giant,                            short: Giant,               source: crossref, issn: 2666-5425}
+  - {name: Polymer Degradation and Stability, short: Polym. Degrad. Stab., source: crossref, issn: 0141-3910}
+  - {name: Reactive and Functional Polymers, short: React. Funct. Polym., source: crossref, issn: 1381-5148}
+  - {name: Polymer Testing, short: Polym. Test., source: crossref, issn: 0142-9418, enabled: false}
+
+  # --- room to grow: J. Mater. Chem. A/C (RSC), Nanoscale, Chem. Sci.,
+  #     Nat. Commun., Sci. Adv., Angew. Chem., Matter, Macromol. Rapid Commun. ---

@@ -1,0 +1,22 @@
+# machine-owned / collected data (not code)
+data/
+digests/*.json
+digests/assets/
+site/
+feedback.md
+news/*_policy_news.md
+news/*_policy_news.json
+
+# local trash (see ~/.claude/CLAUDE.md trash convention)
+削除/
+
+# reference material, not project code
+*.pdf
+
+# editor / OS
+.DS_Store
+Thumbs.db
+
+# python
+__pycache__/
+*.pyc
